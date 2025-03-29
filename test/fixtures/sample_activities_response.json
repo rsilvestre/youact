@@ -1,0 +1,179 @@
+{
+  "kind": "youtube#activityListResponse",
+  "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/8bZA2z2xhxqCHo0beKmB-qJt9T8\"",
+  "nextPageToken": "CAUQAA",
+  "pageInfo": {
+    "totalResults": 88,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#activity",
+      "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/IBGPkkHl9XBx7HG1MtVijQG9VT0\"",
+      "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3",
+      "snippet": {
+        "publishedAt": "2023-01-15T14:30:45Z",
+        "channelId": "UC5_L-VbFcOOCp6xDCQB4Aog",
+        "title": "New Tutorial Video",
+        "description": "Check out my latest tutorial covering programming concepts!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Programming Channel",
+        "type": "upload"
+      },
+      "contentDetails": {
+        "upload": {
+          "videoId": "dQw4w9WgXcQ"
+        }
+      }
+    },
+    {
+      "kind": "youtube#activity",
+      "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/fRLLBbkjtGE5ZJN9yI4FdcS8rPI\"",
+      "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY4",
+      "snippet": {
+        "publishedAt": "2023-01-12T18:22:31Z",
+        "channelId": "UC5_L-VbFcOOCp6xDCQB4Aog",
+        "title": "Great Tutorial Video",
+        "description": "This is a video I liked about programming",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/xyzABC123/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/xyzABC123/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/xyzABC123/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Programming Channel",
+        "type": "like"
+      },
+      "contentDetails": {
+        "like": {
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "xyzABC123"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#activity",
+      "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/W7uqMVbcwNxp_QXLZzffBiU4l-s\"",
+      "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY5",
+      "snippet": {
+        "publishedAt": "2023-01-10T09:15:22Z",
+        "channelId": "UC5_L-VbFcOOCp6xDCQB4Aog",
+        "title": "Programming Playlist Update",
+        "description": "Added a new video to my playlist",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/987ZYX654/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/987ZYX654/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/987ZYX654/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Programming Channel",
+        "type": "playlistItem"
+      },
+      "contentDetails": {
+        "playlistItem": {
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "987ZYX654"
+          },
+          "playlistId": "PL1234567890"
+        }
+      }
+    },
+    {
+      "kind": "youtube#activity",
+      "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/HUEeQqxMuKuHXbdoRiMdwB868Ws\"",
+      "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTcw",
+      "snippet": {
+        "publishedAt": "2023-01-05T12:45:30Z",
+        "channelId": "UC5_L-VbFcOOCp6xDCQB4Aog",
+        "title": "New Channel Subscription",
+        "description": "Subscribed to a new programming channel",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/subscription/default.jpg",
+            "width": 120,
+            "height": 90
+          }
+        },
+        "channelTitle": "Programming Channel",
+        "type": "subscription"
+      },
+      "contentDetails": {
+        "subscription": {
+          "resourceId": {
+            "kind": "youtube#channel",
+            "channelId": "UC1234567890"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#activity",
+      "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/HUEeQqxMuKuHXbdoRiMdwB868Ws\"",
+      "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTcx",
+      "snippet": {
+        "publishedAt": "2023-01-01T00:00:00Z",
+        "channelId": "UC5_L-VbFcOOCp6xDCQB4Aog",
+        "title": "Channel Update",
+        "description": "Happy New Year! We have some exciting content planned for this year.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/channel/default.jpg",
+            "width": 120,
+            "height": 90
+          }
+        },
+        "channelTitle": "Programming Channel",
+        "type": "bulletin"
+      },
+      "contentDetails": {
+        "bulletin": {
+          "resourceId": {
+            "kind": "youtube#channel",
+            "channelId": "UC5_L-VbFcOOCp6xDCQB4Aog"
+          }
+        }
+      }
+    }
+  ]
+}
