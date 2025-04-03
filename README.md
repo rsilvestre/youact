@@ -77,7 +77,13 @@ Youact.get_channel_activities("UC5_L-VbFcOOCp6xDCQB4Aog")
 
 All functions return either:
 - `{:ok, result}` for successful operations
-- `{:error, reason}` when something goes wrong (typically `:not_found`)
+- `{:error, reason}` when something goes wrong
+
+Possible error reasons:
+- `:not_found` - The channel or activities couldn't be found
+- `:parse_error` - Error parsing the response from YouTube
+- `:unknown_error` - An unknown error occurred
+- Other string messages directly from the YouTube API
 
 ### Bang Functions
 
@@ -88,13 +94,64 @@ If you don't need to pattern match `{:ok, data}` and `{:error, reason}`, there i
 activities = Youact.get_channel_activities!("UC5_L-VbFcOOCp6xDCQB4Aog")
 ```
 
-## Formatting Helpers
+## Data Schema
 
-Youact provides helper functions for formatting activity data:
+### Youact.Activity
+
+A struct representing a YouTube channel activity request:
 
 ```elixir
-# Format date
-Youact.ActivityDetails.format_date(activity) # => "Jun 24, 2014"
+%Youact.Activity{
+  channel_id: "UC5_L-VbFcOOCp6xDCQB4Aog"
+}
+```
+
+Fields:
+- `channel_id` (required): The YouTube channel ID
+
+### Youact.ActivityDetails
+
+The activity details struct containing information about each activity:
+
+```elixir
+%Youact.ActivityDetails{
+  id: "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3",     # Activity ID from YouTube
+  channel_id: "UC5_L-VbFcOOCp6xDCQB4Aog",          # YouTube channel ID
+  title: "New Video Title",                         # Activity title
+  description: "Description of the activity...",    # Activity description (may be empty)
+  published_at: "2023-01-15T14:30:45Z",            # ISO 8601 formatted publication date
+  thumbnail_url: "https://i.ytimg.com/...",        # URL to thumbnail image (may be empty)
+  activity_type: "upload",                         # Type of activity (see below)
+  video_id: "dQw4w9WgXcQ",                        # ID of the video (if applicable)
+  playlist_id: ""                                  # ID of the playlist (if applicable)
+}
+```
+
+#### Activity Types
+
+The `activity_type` field can have the following values:
+- `"upload"` - Channel uploaded a video
+- `"playlistItem"` - Channel added a video to a playlist
+- `"like"` - Channel liked a video
+- `"favorite"` - Channel favorited a video
+- `"comment"` - Channel commented on a video
+- `"subscription"` - Channel subscribed to another channel
+- `"recommendation"` - Channel recommended a video
+- `"social"` - Channel shared a video on a social platform
+- `"channelItem"` - Channel posted a channel update
+- `"unknown"` - Activity type couldn't be determined
+
+Video ID and playlist ID will only be populated for the relevant activity types:
+- `video_id` is populated for: upload, playlistItem, like
+- `playlist_id` is populated for: playlistItem, channelItem
+
+### Helper Functions
+
+Youact provides helper functions for working with activity data:
+
+```elixir
+# Format date from ISO 8601 to human-readable
+Youact.ActivityDetails.format_date(activity) # => "Jan 15, 2023"
 ```
 
 ## Caching
@@ -152,24 +209,6 @@ Youact.clear_cache()
 
 When caching is enabled, activities are stored with a TTL (time-to-live). The cache is automatically cleaned up periodically to prevent storage issues.
 
-## Data Structure
-
-### Youact.ActivityDetails
-
-The activity details structure containing:
-- `id`: Activity ID
-- `channel_id`: YouTube channel ID
-- `title`: Activity title
-- `description`: Activity description
-- `published_at`: Activity publication date (ISO 8601 format)
-- `thumbnail_url`: URL to the activity thumbnail image
-- `activity_type`: Type of activity (upload, like, playlistItem, etc.)
-- `video_id`: ID of the video (if applicable)
-- `playlist_id`: ID of the playlist (if applicable)
-
-**Helper Functions:**
-- `format_date/1`: Formats ISO date as human-readable text
-
 ## Examples
 
 ### Displaying Channel Activities
@@ -199,6 +238,11 @@ defmodule ActivityProcessor do
       "like" -> "👍"
       "playlistItem" -> "🎬"
       "subscription" -> "📢"
+      "comment" -> "💬"
+      "favorite" -> "⭐"
+      "recommendation" -> "👀"
+      "social" -> "🔄"
+      "channelItem" -> "📰"
       _ -> "🔔"
     end
     
